@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.member.dao.MemberDAO">
+ 	<resultMap id="member" type="com.care.root.member.dto.MemberDTO" >
+ 		<result property="id" column="id" />
+ 		<result property="name" column="name" /> 
+ 	</resultMap>
+	<insert id="insertMember">  <!-- MemberDAO에서 실행하고 싶은 아이디 insertMember를 찾아와서 실행 -->
+		insert into test_mybatis values(#{id}, #{name})  <!--쿼리문을 작성 .실직적 쿼리문은 무조건 이쪽 xml만 보면됌-->
+	</insert>
+	<select id="memberView" resultMap="member">
+		select *from test_mybatis
+	</select>
+ 
+ 
+</mapper>
